@@ -4,20 +4,19 @@ React + Redux Toolkit + React Router shop. All 16 functional checks pass locally
 (see test in Temp: landing, 18 plants / 3 categories, add-to-cart disable + count,
 cart totals, qty +/-, delete, Coming Soon checkout, continue shopping).
 
-## Coursera submission (GitHub URLs, repo root = this folder)
+## Coursera submission (GitHub URLs — all verified HTTP 200)
 
-| Task | File |
+Repo: https://github.com/Vedant-Divate/paradise-nursery-shopping-app
+
+| Task | URL |
 |---|---|
-| 1 – README project name (2 pts) | `README.md` |
-| 2 – AboutUs company details (1 pt) | `src/components/AboutUs.jsx` |
-| 3 – App.css landing background image (1 pt) | `src/App.css` (`background-image: url('/images/landing-bg.svg')`) |
-| 4 – App.jsx landing + Get Started (3 pts) | `src/App.jsx` |
-| 5 – CartSlice Redux slice (4 pts) | `src/redux/CartSlice.jsx` |
-| 6 – ProductList (16 pts) | `src/components/ProductList.jsx` |
-| 7 – CartItem cart page (23 pts) | `src/components/CartItem.jsx` |
-
-Suggested public repo name: `paradise-nursery-shopping-app`
-(e.g. `https://github.com/Vedant-Divate/paradise-nursery-shopping-app/blob/main/src/App.jsx`).
+| 1 – README project name (2 pts) | https://github.com/Vedant-Divate/paradise-nursery-shopping-app/blob/main/README.md |
+| 2 – AboutUs company details (1 pt) | https://github.com/Vedant-Divate/paradise-nursery-shopping-app/blob/main/src/components/AboutUs.jsx |
+| 3 – App.css landing background image (1 pt) | https://github.com/Vedant-Divate/paradise-nursery-shopping-app/blob/main/src/App.css |
+| 4 – App.jsx landing + Get Started (3 pts) | https://github.com/Vedant-Divate/paradise-nursery-shopping-app/blob/main/src/App.jsx |
+| 5 – CartSlice Redux slice (4 pts) | https://github.com/Vedant-Divate/paradise-nursery-shopping-app/blob/main/src/redux/CartSlice.jsx |
+| 6 – ProductList (16 pts) | https://github.com/Vedant-Divate/paradise-nursery-shopping-app/blob/main/src/components/ProductList.jsx |
+| 7 – CartItem cart page (23 pts) | https://github.com/Vedant-Divate/paradise-nursery-shopping-app/blob/main/src/components/CartItem.jsx |
 
 ## Run / build
 
