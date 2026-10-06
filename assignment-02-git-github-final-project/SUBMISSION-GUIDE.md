@@ -9,16 +9,17 @@ All work is kept local in this folder. Nothing has been pushed to `main` of the
 
 ## Part 1 – GitHub UI (12 pts): what to submit
 
-After pushing this folder's 5 files to your public fork's `main` branch,
-submit these URLs (replace with your live URLs):
+> CORRECTION (grader feedback): Tasks 1-5 require repo name **`github-final-project`**,
+> NOT the mcino fork. Files are pushed to:
+> https://github.com/Vedant-Divate/github-final-project (all 5 URLs verified HTTP 200).
 
 | Task | File in this folder | Public URL to submit |
 |---|---|---|
-| 1 – README.md with project name (4 pts) | `README.md` | https://github.com/Vedant-Divate/mcino-Introduction-to-Git-and-GitHub/blob/main/README.md |
-| 2 – LICENSE Apache 2.0 (2 pts) | `LICENSE` | https://github.com/Vedant-Divate/mcino-Introduction-to-Git-and-GitHub/blob/main/LICENSE |
-| 3 – CODE_OF_CONDUCT (2 pts) | `CODE_OF_CONDUCT.md` | https://github.com/Vedant-Divate/mcino-Introduction-to-Git-and-GitHub/blob/main/CODE_OF_CONDUCT.md |
-| 4 – CONTRIBUTING.md (2 pts) | `CONTRIBUTING.md` | https://github.com/Vedant-Divate/mcino-Introduction-to-Git-and-GitHub/blob/main/CONTRIBUTING.md |
-| 5 – simple-interest.sh (2 pts) | `simple-interest.sh` | https://github.com/Vedant-Divate/mcino-Introduction-to-Git-and-GitHub/blob/main/simple-interest.sh |
+| 1 – README.md with project name (4 pts) | `README.md` | https://github.com/Vedant-Divate/github-final-project/blob/main/README.md |
+| 2 – LICENSE Apache 2.0 (2 pts) | `LICENSE` | https://github.com/Vedant-Divate/github-final-project/blob/main/LICENSE |
+| 3 – CODE_OF_CONDUCT (2 pts) | `CODE_OF_CONDUCT.md` | https://github.com/Vedant-Divate/github-final-project/blob/main/CODE_OF_CONDUCT.md |
+| 4 – CONTRIBUTING.md (2 pts) | `CONTRIBUTING.md` | https://github.com/Vedant-Divate/github-final-project/blob/main/CONTRIBUTING.md |
+| 5 – simple-interest.sh (2 pts) | `simple-interest.sh` | https://github.com/Vedant-Divate/github-final-project/blob/main/simple-interest.sh |
 
 Grader keyword checklist (all verified locally):
 - README.md: `Introduction to Git and GitHub`, `Simple Interest Calculator`, `p, principal amount`, `simple interest = p*t*r`
