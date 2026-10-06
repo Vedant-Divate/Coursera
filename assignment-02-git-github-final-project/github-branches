@@ -1,19 +1,19 @@
 $ git branch -a -v
-  bug-fix-typo        e95e94b Fix typo in README
-* main                e95e94b [ahead 1] Fix typo in README
-  remotes/origin/HEAD -> origin/main
-  remotes/origin/main ad95b0a Create close_pr.yml
+  bug-fix-typo                d709961 Fix typo in README
+* main                        d709961 [ahead 1] Fix typo in README
+  remotes/origin/HEAD         -> origin/main
+  remotes/origin/bug-fix-typo d709961 Fix typo in README
+  remotes/origin/main         58be0ce Add simple-interest.sh with project details (Vedant Divate)
 
-$ git status
-On branch main
-Your branch is ahead of 'origin/main' by 1 commit.
-  (use "git push" to publish your local commits)
+$ git status --short --branch
+## main...origin/main [ahead 1]
 
-nothing to commit, working tree clean
-
-$ git log --oneline -5
-e95e94b Fix typo in README
+$ git log --oneline -8
+d709961 Fix typo in README
+58be0ce Add simple-interest.sh with project details (Vedant Divate)
+1e92cf1 Add CONTRIBUTING.md with project details (Vedant Divate)
+135d4f5 Add CODE_OF_CONDUCT.md with project details (Vedant Divate)
+43a697a Add LICENSE with project details (Vedant Divate)
+2424235 Add README.md with project details (Vedant Divate)
 ad95b0a Create close_pr.yml
 13af262 Create feature_request.md
-cd5f237 Create bug_report.md
-cdeb355 Create CODE_OF_CONDUCT.md

@@ -1,15 +1,16 @@
+$ git checkout bug-fix-typo
+branch 'bug-fix-typo' set up to track 'origin/bug-fix-typo'.
+Switched to a new branch 'bug-fix-typo'
+
+$ git log --oneline -1
+d709961 Fix typo in README
+
 $ git checkout main
 Switched to branch 'main'
 Your branch is up to date with 'origin/main'.
 
 $ git merge bug-fix-typo
-Updating ad95b0a..e95e94b
+Updating 58be0ce..d709961
 Fast-forward
  README.md | 2 ++
  1 file changed, 2 insertions(+)
-
-# Verification:
-$ git log --oneline -3
-e95e94b Fix typo in README
-ad95b0a Create close_pr.yml
-13af262 Create feature_request.md
