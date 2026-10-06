@@ -32,14 +32,14 @@ import OK, output format OK, package OK, **5/5 unit tests pass**, **pylint 10.00
   (README explicitly says "Final Project")
 - Task 4-Act1: `https://github.com/Vedant-Divate/oaqjp-final-project-emb-ai/blob/main/EmotionDetection/__init__.py`
 
-## Text answers (files in this folder — paste contents)
+## Text answers (files in this folder — paste contents; `.txt` keeps editors quiet)
 
-- Task 2-Act1 (`2a_emotion_detection`): `emotion_detector(text_to_analyse)`,
+- Task 2-Act1 (`2a_emotion_detection.txt`): `emotion_detector(text_to_analyse)`,
   model `emotion_aggregated-workflow_lang_en_stock`, full Watson URL literal
-- Task 2-Act2 (`2b_application_creation`): shell + import + dict-result transcript
-- Task 3-Act1 (`3a_output_formatting`): same function code (formatted return)
+- Task 2-Act2 (`2b_application_creation.txt`): shell + import + dict-result transcript
+- Task 3-Act1 (`3a_output_formatting.txt`): same function code (formatted return)
 - Task 3-Act2: `format_check.txt`
-- Task 4-Act2 (`4b_packaging_test`): import + scores + dominant transcript
+- Task 4-Act2 (`4b_packaging_test.txt`): import + scores + dominant transcript
 - Task 5-Act1: `test_emotion_detection.py`; Act2: `unittest_output.txt` (5/5 OK)
 - Task 6-Act1: `server.py`; Act2: `6b_deployment_test.png`
 - Task 7: code in `emotion_detection.py` (400→None) + `server.py` (blank guard) + `7c_error_handling_interface.png`
