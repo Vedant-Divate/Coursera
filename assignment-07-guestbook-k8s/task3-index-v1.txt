@@ -1,0 +1,3 @@
+$ grep -E "<title>|<h1>" index.html
+  <title>Guestbook</title>
+    <h1>Guestbook</h1>

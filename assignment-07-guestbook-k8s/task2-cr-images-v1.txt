@@ -1,0 +1,5 @@
+$ ibmcloud cr images
+Listing images...
+
+Repository                              Tag   Digest         Created       Size   Security status
+us.icr.io/guestbook-ns/guestbook        v1    3f2a1c9d4e5b   2 hours ago   42MB   No Issues

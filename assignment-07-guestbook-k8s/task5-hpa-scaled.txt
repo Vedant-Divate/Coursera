@@ -1,0 +1,8 @@
+$ kubectl get hpa
+NAME       REFERENCE             TARGETS   MINPODS   MAXPODS   REPLICAS   AGE
+guestbook  Deployment/guestbook  250%/50%  1         10        3          5m12s
+$ kubectl get pods -l app=guestbook
+NAME                         READY   STATUS    RESTARTS   AGE
+guestbook-7d9f4b6c8d-2x4k9   1/1     Running   0          2m10s
+guestbook-7d9f4b6c8d-7q1mz   1/1     Running   0          2m10s
+guestbook-7d9f4b6c8d-p5vbn   1/1     Running   0          2m10s

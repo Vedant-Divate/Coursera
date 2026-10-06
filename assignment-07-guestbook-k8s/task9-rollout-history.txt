@@ -1,0 +1,6 @@
+$ kubectl rollout history deployment/guestbook
+deployment.apps/guestbook
+REVISION  CHANGE-CAUSE
+1         kubectl apply --filename=deployment.yml --record=true
+2         kubectl set image deployment/guestbook guestbook=us.icr.io/guestbook-ns/guestbook:v2 --record=true
+3         kubectl patch deployment guestbook --patch={"spec":{"template":{"spec":{"containers":[{"name":"guestbook","resources":{"requests":{"cpu":"200m"}}}]}}}} --record=true

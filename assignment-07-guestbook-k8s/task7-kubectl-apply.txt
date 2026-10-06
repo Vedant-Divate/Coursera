@@ -1,0 +1,5 @@
+$ kubectl apply -f deployment.yml
+deployment.apps/guestbook configured
+$ kubectl get deployments
+NAME       READY   UP-TO-DATE   AVAILABLE   AGE
+guestbook  1/1     1            1           12m

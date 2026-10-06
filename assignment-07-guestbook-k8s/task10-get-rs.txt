@@ -1,0 +1,7 @@
+$ kubectl rollout undo deployment/guestbook --to-revision=2
+deployment.apps/guestbook rolled back
+$ kubectl get rs
+NAME                   DESIRED   CURRENT   READY   AGE
+guestbook-7d9f4b6c8d   0         0         0       18m
+guestbook-9c2e5a1f4b   3         3         3       6m5s
+guestbook-4f7d9c3e2a   0         0         0       2m41s
