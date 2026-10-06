@@ -1,6 +1,17 @@
 $ cat Dockerfile
-# Guestbook v1 image: nginx serving the static front end
-FROM nginx:1.25-alpine
-COPY index.html /usr/share/nginx/html/index.html
-EXPOSE 80
-CMD ["nginx", "-g", "daemon off;"]
+# Guestbook application image: Go multi-stage build
+# Build stage: compile the Go binary
+FROM golang:1.22 AS builder
+WORKDIR /app
+COPY go.mod ./
+RUN go mod download
+COPY main.go ./
+RUN CGO_ENABLED=0 go build -o /guestbook .
+
+# Deploy stage: ship the binary plus the frontend files
+FROM gcr.io/distroless/static-debian12
+WORKDIR /
+COPY --from=builder /guestbook /guestbook
+COPY public/ /public/
+EXPOSE 3000
+CMD ["/guestbook"]
