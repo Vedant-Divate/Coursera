@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vedant Divate - Portfolio</title>
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body id="top">
+
+  <!-- Navigation Bar -->
+  <nav id="home">
+    <div class="profile_name">
+      Vedant Divate
+      <div class="contact_info">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="mail" width="14" height="14" style="vertical-align:middle"/>
+        vedant.divate@example.com
+      </div>
+      <div class="contact_info">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="github" width="14" height="14" style="vertical-align:middle"/>
+        github.com/Vedant-Divate
+      </div>
+    </div>
+    <div class="topdiv">
+      <a class="topmenu" href="#about-me">About Me</a>
+      <a class="topmenu" href="#skills">Skills</a>
+      <a class="topmenu" href="#projects">Project Details</a>
+      <a class="topmenu" href="#recommendations">Recommendations</a>
+      <a class="topmenu home-icon" href="#top" title="Home" aria-label="Home">&#8962;</a>
+    </div>
+  </nav>
+
+  <!-- About Me -->
+  <section id="about-me" class="container">
+    <div class="profile">
+      <img src="./profile.jpg" alt="Vedant Divate profile photo" class="profile_img" width="220" height="220"/>
+    </div>
+    <div class="about">
+      <h1>Hi, I'm Vedant Divate! 👋</h1>
+      <p>
+        I am a 3rd year Artificial Intelligence and Data Science Engineering Student at Vishwakarma Institute of Technology, Pune.
+        I love building with Python, JavaScript, and modern web technologies, and I am deeply interested in machine learning,
+        computer vision, and full-stack development.
+      </p>
+      <p>
+        I have built projects ranging from code execution visualizers and football video analytics with YOLO + OpenCV,
+        to price-transparency tools for medicines and decentralized apps. I enjoy solving real-world problems,
+        learning in public on GitHub, and collaborating on impactful ideas.
+      </p>
+    </div>
+  </section>
+
+  <!-- Skills -->
+  <section id="skills" class="container">
+    <h2>Skills</h2>
+    <div class="all_skills">
+      <div class="skill">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML5 logo" />
+        <h6>HTML</h6>
+        <p>3 years experience</p>
+      </div>
+      <div class="skill">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS3 logo" />
+        <h6>CSS</h6>
+        <p>3 years experience</p>
+      </div>
+      <div class="skill">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript logo" />
+        <h6>JavaScript</h6>
+        <p>2 years experience</p>
+      </div>
+      <div class="skill">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python logo" />
+        <h6>Python</h6>
+        <p>3 years experience</p>
+      </div>
+      <div class="skill">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React logo" />
+        <h6>React</h6>
+        <p>2 years experience</p>
+      </div>
+      <div class="skill">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" alt="Node.js logo" />
+        <h6>Node.js</h6>
+        <p>2 years experience</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects / Project Details -->
+  <section id="projects" class="container projects-container">
+    <h2>Project Details</h2>
+    <div style="clear:both;"></div>
+
+    <div id="projects-container" class="projects-container">
+      <div class="project-card">
+        <h3>LogicLens - Interactive Code Execution Visualizer</h3>
+        <ul>
+          <li>Parses JavaScript via Babel into an AST, instruments it, and runs it in a Web Worker to visualize memory, arrays, and the call stack step-by-step.</li>
+          <li>Built with JavaScript, React, Babel, and Web Workers for safe, responsive single-step execution.</li>
+          <li>GitHub: <a href="https://github.com/Vedant-Divate/LogicLens" target="_blank">Vedant-Divate/LogicLens</a></li>
+        </ul>
+      </div>
+      <hr />
+      <div class="project-card">
+        <h3>Football Video Analytics System</h3>
+        <ul>
+          <li>Football video analytics system using YOLO, OpenCV, and Python for player/ball tracking, team assignment, camera motion estimation, and speed-distance analysis.</li>
+          <li>Research work published in ETFI. Uses Jupyter Notebook, PyTorch/YOLO, and classic CV pipelines.</li>
+          <li>GitHub: <a href="https://github.com/Vedant-Divate/Football-Analytics-Project" target="_blank">Vedant-Divate/Football-Analytics-Project</a></li>
+        </ul>
+      </div>
+      <hr />
+      <div class="project-card">
+        <h3>SameDrug - Medicine Price Transparency Platform</h3>
+        <ul>
+          <li>Shows what you actually pay vs what the government capped it at — NPPA ceilings vs Jan Aushadhi, per-unit aligned, with full provenance.</li>
+          <li>302 verified comparisons over 2,439 products. Built with Python, data pipelines, and web frontend.</li>
+          <li>GitHub: <a href="https://github.com/Vedant-Divate/SameDrug" target="_blank">Vedant-Divate/SameDrug</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Recommendations -->
+  <section id="recommendations" class="container">
+    <h2>Recommendations</h2>
+    <div style="clear:both;"></div>
+    <div class="all_recommendations" id="all_recommendations">
+      <div class="recommendation">
+        <span>&#8220;</span>
+        Vedant is a fast learner with strong fundamentals in AI and data science. He built a complete football analytics pipeline
+        with YOLO and OpenCV in a short time and documented it really well. A great team player to work with.
+        <span>&#8221;</span>
+      </div>
+      <div class="recommendation">
+        <span>&#8220;</span>
+        I collaborated with Vedant Divate on a full-stack project. His React and Node.js skills are solid, he communicates clearly,
+        takes ownership of his modules, and always delivers clean, working code on time.
+        <span>&#8221;</span>
+      </div>
+      <div class="recommendation">
+        <span>&#8220;</span>
+        Vedant combines curiosity with discipline. His LogicLens visualizer shows real understanding of JavaScript internals,
+        ASTs, and UX thinking. He would be a valuable asset to any engineering team.
+        <span>&#8221;</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Recommendation Form -->
+  <section id="contact" class="container">
+    <fieldset>
+      <legend class="introduction">Leave a Recommendation</legend>
+      <input type="text" placeholder="Name (Optional)" id="rec_name" />
+      <br />
+      <textarea id="new_recommendation" cols="500" rows="10" placeholder="Message"></textarea>
+      <div class="flex_center">
+        <button id="recommend_btn" onclick="addRecommendation()">Submit</button>
+      </div>
+    </fieldset>
+  </section>
+
+  <!-- Popup -->
+  <div class="popup" id="popup">
+    <img src="https://cdn-icons-png.flaticon.com/512/4436/4436481.png" alt="checkmark" width="60" />
+    <h3>Thanks for leaving a recommendation!</h3>
+    <button onclick="showPopup(false)">Ok</button>
+  </div>
+
+  <!-- Home icon floating -->
+  <a href="#top" class="home-float" title="Go to top" aria-label="Home">&#8962;</a>
+
+  <script src="./script.js"></script>
+</body>
+</html>
