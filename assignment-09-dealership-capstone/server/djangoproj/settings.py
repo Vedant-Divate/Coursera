@@ -27,7 +27,9 @@ DEBUG = True
 
 X_FRAME_OPTIONS = 'SAMEORIGIN'
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'testserver', '.loca.lt']
+
+CSRF_TRUSTED_ORIGINS = ['https://*.loca.lt']
 
 
 # Application definition
