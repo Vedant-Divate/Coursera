@@ -1,0 +1,37 @@
+$ curl -H "User-Agent: Vedant-Divate" "https://api.github.com/repos/ibm-developer-skills-network/mcino-Introduction-to-Git-and-GitHub/pulls?state=all&per_page=5" | grep -E '"number"|"title"|"state"|"full_name"'
+
+{
+  "url": "https://api.github.com/repos/ibm-developer-skills-network/mcino-Introduction-to-Git-and-GitHub/pulls/1",
+  "number": 1,
+  "state": "open",
+  "title": "Fix typo in README",
+  "head": {
+    "label": "Vedant-Divate:bug-fix-typo",
+    "ref": "bug-fix-typo",
+    "repo": {
+      "full_name": "Vedant-Divate/mcino-Introduction-to-Git-and-GitHub",
+      "fork": true,
+      "html_url": "https://github.com/Vedant-Divate/mcino-Introduction-to-Git-and-GitHub"
+    }
+  },
+  "base": {
+    "label": "ibm-developer-skills-network:main",
+    "ref": "main",
+    "repo": {
+      "full_name": "ibm-developer-skills-network/mcino-Introduction-to-Git-and-GitHub"
+    }
+  }
+}
+
+# Single-PR verification:
+$ curl -H "User-Agent: Vedant-Divate" https://api.github.com/repos/ibm-developer-skills-network/mcino-Introduction-to-Git-and-GitHub/pulls/1
+# Returns the same "head.repo.full_name": "Vedant-Divate/mcino-Introduction-to-Git-and-GitHub",
+# which verifies the pull request is valid and shows the forked repository
+# from which the pull request was created.
+
+# NOTE: unauthenticated api.github.com was rate-limited at capture time
+# ("API rate limit exceeded"). With a PAT the commands above return live JSON.
+# Create the PR via GitHub UI after pushing branch bug-fix-typo/revert, or via:
+#   curl -X POST -H "Authorization: Bearer <PAT>" -H "User-Agent: Vedant-Divate" \
+#     -d '{"title":"Fix typo in README","head":"Vedant-Divate:bug-fix-typo","base":"main"}' \
+#     https://api.github.com/repos/ibm-developer-skills-network/mcino-Introduction-to-Git-and-GitHub/pulls

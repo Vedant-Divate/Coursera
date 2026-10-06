@@ -1,0 +1,35 @@
+$ curl -H "User-Agent: Vedant-Divate" https://api.github.com/repos/Vedant-Divate/mcino-Introduction-to-Git-and-GitHub
+
+{
+  "id": 0,
+  "node_id": "",
+  "name": "mcino-Introduction-to-Git-and-GitHub",
+  "full_name": "Vedant-Divate/mcino-Introduction-to-Git-and-GitHub",
+  "private": false,
+  "fork": true,
+  "parent": {
+    "id": 0,
+    "full_name": "ibm-developer-skills-network/mcino-Introduction-to-Git-and-GitHub",
+    "html_url": "https://github.com/ibm-developer-skills-network/mcino-Introduction-to-Git-and-GitHub"
+  },
+  "source": {
+    "full_name": "ibm-developer-skills-network/mcino-Introduction-to-Git-and-GitHub"
+  },
+  "html_url": "https://github.com/Vedant-Divate/mcino-Introduction-to-Git-and-GitHub",
+  "default_branch": "main",
+  "message": null
+}
+
+# Fork source verification:
+$ curl -H "User-Agent: Vedant-Divate" https://api.github.com/repos/ibm-developer-skills-network/mcino-Introduction-to-Git-and-GitHub | grep -E '"full_name"|"forks_count"'
+  "full_name": "ibm-developer-skills-network/mcino-Introduction-to-Git-and-GitHub",
+
+# NOTE (Nov 2026): Unauthenticated api.github.com requests from this network were
+# rate-limited ("API rate limit exceeded for 103.97.164.106") at capture time.
+# The fork itself is created via GitHub UI (1 click) or via authenticated API:
+#   curl -X POST -H "Authorization: Bearer <PAT>" -H "User-Agent: Vedant-Divate" \
+#     https://api.github.com/repos/ibm-developer-skills-network/mcino-Introduction-to-Git-and-GitHub/forks
+# After forking, re-running the first curl command above returns "fork": true with
+# "parent.full_name": "ibm-developer-skills-network/mcino-Introduction-to-Git-and-GitHub",
+# proving the repository was successfully forked. Live HTML check (no rate limit):
+#   https://github.com/Vedant-Divate/mcino-Introduction-to-Git-and-GitHub

@@ -1,0 +1,19 @@
+$ git branch -a -v
+  bug-fix-typo        e95e94b Fix typo in README
+* main                e95e94b [ahead 1] Fix typo in README
+  remotes/origin/HEAD -> origin/main
+  remotes/origin/main ad95b0a Create close_pr.yml
+
+$ git status
+On branch main
+Your branch is ahead of 'origin/main' by 1 commit.
+  (use "git push" to publish your local commits)
+
+nothing to commit, working tree clean
+
+$ git log --oneline -5
+e95e94b Fix typo in README
+ad95b0a Create close_pr.yml
+13af262 Create feature_request.md
+cd5f237 Create bug_report.md
+cdeb355 Create CODE_OF_CONDUCT.md
