@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dealer Evaluation - Best Cars</title>
+  <style>
+    body { font-family: 'Segoe UI', Arial, sans-serif; background: #f4f6fb; margin: 0; }
+    header { background: #1e3a8a; color: #fff; padding: 18px 32px; }
+    header h1 { margin: 0; font-size: 26px; }
+    main { max-width: 720px; margin: 30px auto; background: #fff; border-radius: 12px;
+           padding: 28px 32px; box-shadow: 0 2px 12px rgba(0,0,0,0.1); }
+    label { font-weight: 600; display: block; margin: 16px 0 6px; }
+    select { width: 100%; padding: 10px; font-size: 16px; border-radius: 6px; }
+    #dealers, #price { margin-top: 18px; font-size: 17px; }
+    table { border-collapse: collapse; width: 100%; margin-top: 10px; }
+    th, td { border: 1px solid #cbd5e1; padding: 8px 12px; text-align: left; }
+    th { background: #e0e7ff; }
+    .price-tag { font-size: 22px; font-weight: 700; color: #166534; }
+  </style>
+</head>
+<body>
+  <header><h1>Best Cars – Dealer Evaluation</h1></header>
+  <main>
+    <label for="product">Select a product:</label>
+    <select id="product"><option value="">-- Choose product --</option></select>
+
+    <label for="dealer">Select a dealer:</label>
+    <select id="dealer" disabled><option value="">-- Choose dealer --</option></select>
+
+    <div id="dealers"></div>
+    <div id="price"></div>
+  </main>
+  <script>
+    // ===== API endpoints (replace with Code Engine deployed URLs) =====
+    // Code Engine: const PRODUCT_API = 'https://product-service.<ce-domain>';
+    // Code Engine: const DEALER_API = 'https://dealer-service.<ce-domain>';
+    const PRODUCT_API = 'http://localhost:5001';
+    const DEALER_API = 'http://localhost:5002';
+
+    const productSel = document.getElementById('product');
+    const dealerSel = document.getElementById('dealer');
+    const dealersDiv = document.getElementById('dealers');
+    const priceDiv = document.getElementById('price');
+
+    async function loadProducts() {
+      const res = await fetch(PRODUCT_API + '/products');
+      const products = await res.json();
+      products.forEach((p) => {
+        const opt = document.createElement('option');
+        opt.value = p.id;
+        opt.textContent = p.name;
+        productSel.appendChild(opt);
+      });
+    }
+
+    async function loadDealers() {
+      const pid = productSel.value;
+      dealerSel.innerHTML = '<option value="">-- Choose dealer --</option>';
+      dealersDiv.innerHTML = '';
+      priceDiv.innerHTML = '';
+      if (!pid) { dealerSel.disabled = true; return; }
+      const res = await fetch(DEALER_API + '/dealers?product_id=' + pid);
+      const dealers = await res.json();
+      const all = document.createElement('option');
+      all.value = 'all';
+      all.textContent = 'All dealers';
+      dealerSel.appendChild(all);
+      dealers.forEach((d) => {
+        const opt = document.createElement('option');
+        opt.value = d.id;
+        opt.textContent = d.name;
+        dealerSel.appendChild(opt);
+      });
+      dealerSel.disabled = false;
+      dealersDiv.innerHTML = '<strong>Dealers supplying this product:</strong><ul>'
+        + dealers.map((d) => '<li>' + d.name + '</li>').join('') + '</ul>';
+    }
+
+    async function showPrice() {
+      const pid = productSel.value;
+      const did = dealerSel.value;
+      priceDiv.innerHTML = '';
+      if (!pid || !did) return;
+      const res = await fetch(
+        DEALER_API + '/price?product_id=' + pid + '&dealer_id=' + did
+      );
+      const data = await res.json();
+      if (did === 'all') {
+        priceDiv.innerHTML = '<strong>Prices from all dealers:</strong>'
+          + '<table><tr><th>Dealer</th><th>Price ($)</th></tr>'
+          + data.map((r) => '<tr><td>' + r.dealer + '</td><td>' + r.price + '</td></tr>').join('')
+          + '</table>';
+      } else {
+        priceDiv.innerHTML = '<span class="price-tag">' + data.dealer + ': $' + data.price + '</span>';
+      }
+    }
+
+    productSel.addEventListener('change', loadDealers);
+    dealerSel.addEventListener('change', showPrice);
+    loadProducts();
+  </script>
+</body>
+</html>
