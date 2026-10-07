@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>CodeCraftHub - Personalized Learning Platform</title>
+  <title>CodeCraftHub: Your Learning Management Platform</title>
   <style>
     body { font-family: 'Segoe UI', Arial, sans-serif; background: #f1f5f9; margin: 0; }
     header { background: #4f46e5; color: #fff; padding: 20px 32px; }
@@ -11,7 +11,7 @@
     main { max-width: 860px; margin: 28px auto; background: #fff; border-radius: 12px;
            padding: 28px 32px; box-shadow: 0 2px 12px rgba(0,0,0,0.08); }
     .btn-primary {
-      background-color: #4f46e5;
+      background: #8B5CF6;
       color: #ffffff;
       border: none;
       padding: 10px 24px;
@@ -19,9 +19,9 @@
       border-radius: 8px;
       cursor: pointer;
     }
-    .btn-primary:hover { background-color: #4338ca; }
+    .btn-primary:hover { background: #7C3AED; }
     .btn-success {
-      background-color: #16a34a;
+      background: #F59E0B;
       color: #ffffff;
       border: none;
       padding: 8px 18px;
@@ -29,7 +29,7 @@
       border-radius: 8px;
       cursor: pointer;
     }
-    .btn-success:hover { background-color: #15803d; }
+    .btn-success:hover { background: #D97706; }
     .btn-danger {
       background-color: #dc2626;
       color: #ffffff;
@@ -51,7 +51,7 @@
   </style>
 </head>
 <body>
-  <header><h1>CodeCraftHub - Personalized Learning Platform</h1></header>
+  <header><h1>CodeCraftHub: Your Learning Management Platform</h1></header>
   <main>
     <h2>Manage Courses</h2>
     <form id="course-form">
@@ -99,7 +99,7 @@
           '<td><span class="badge">' + course.status + '</span></td>' +
           '<td>' +
           '<button class="btn-primary" onclick="editCourse(' + course.id + ')">Edit</button> ' +
-          '<button class="btn-danger" onclick="deleteCourse(' + course.id + ')">Delete</button>' +
+          '<button class="btn-danger" onclick="handleDelete(' + course.id + ')">Remove</button>' +
           '</td>';
         rows.appendChild(tr);
       });
@@ -139,7 +139,7 @@
       window.scrollTo(0, 0);
     }
 
-    async function deleteCourse(id) {
+    async function handleDelete(id) {
       if (!confirm('Delete course #' + id + '?')) return;
       const res = await fetch(API + '/' + id, { method: 'DELETE' });
       const result = await res.json();
