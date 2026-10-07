@@ -1,0 +1,9 @@
+$ curl -X POST -H "Content-Type: application/json" -d {"title":"Python for Beginners",...} http://localhost:5000/api/courses
+{"data":{"description":"Learn Python by building apps","id":1,"level":"Beginner","status":"published","title":"Python for Beginners"},"success":true}
+
+$ curl http://localhost:5000/api/courses
+{"data":[{"description":"Learn Python by building apps","id":1,"level":"Beginner","status":"published","title":"Python for Beginners"}],"success":true}
+
+Dashboard E2E (headless Chrome vs live API): title OK, 1 row rendered,
+.btn-primary/.btn-success/.btn-danger present, edit prefilled,
+delete removed the row (rows back to 0).

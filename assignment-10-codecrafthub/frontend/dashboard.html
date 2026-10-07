@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CodeCraftHub - Personalized Learning Platform</title>
+  <style>
+    body { font-family: 'Segoe UI', Arial, sans-serif; background: #f1f5f9; margin: 0; }
+    header { background: #4f46e5; color: #fff; padding: 20px 32px; }
+    header h1 { margin: 0; }
+    main { max-width: 860px; margin: 28px auto; background: #fff; border-radius: 12px;
+           padding: 28px 32px; box-shadow: 0 2px 12px rgba(0,0,0,0.08); }
+    .btn-primary {
+      background-color: #4f46e5;
+      color: #ffffff;
+      border: none;
+      padding: 10px 24px;
+      font-size: 15px;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    .btn-primary:hover { background-color: #4338ca; }
+    .btn-success {
+      background-color: #16a34a;
+      color: #ffffff;
+      border: none;
+      padding: 8px 18px;
+      font-size: 14px;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    .btn-success:hover { background-color: #15803d; }
+    .btn-danger {
+      background-color: #dc2626;
+      color: #ffffff;
+      border: none;
+      padding: 8px 18px;
+      font-size: 14px;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    .btn-danger:hover { background-color: #b91c1c; }
+    input, select, textarea {
+      width: 100%; padding: 9px; margin: 6px 0 12px;
+      border: 1px solid #cbd5e1; border-radius: 6px; font-size: 14px;
+    }
+    table { width: 100%; border-collapse: collapse; margin-top: 16px; }
+    th, td { border: 1px solid #e2e8f0; padding: 8px 10px; text-align: left; }
+    th { background: #eef2ff; }
+    .badge { padding: 2px 10px; border-radius: 20px; font-size: 12px; background: #e0e7ff; }
+  </style>
+</head>
+<body>
+  <header><h1>CodeCraftHub - Personalized Learning Platform</h1></header>
+  <main>
+    <h2>Manage Courses</h2>
+    <form id="course-form">
+      <input type="hidden" id="course-id" />
+      <label>Title<input id="course-title" type="text" placeholder="e.g. Python for Beginners" required /></label>
+      <label>Description<textarea id="course-desc" rows="2" placeholder="What will learners build?"></textarea></label>
+      <label>Level
+        <select id="course-level">
+          <option>Beginner</option><option>Intermediate</option><option>Advanced</option>
+        </select>
+      </label>
+      <label>Status
+        <select id="course-status">
+          <option value="draft">draft</option>
+          <option value="published">published</option>
+          <option value="archived">archived</option>
+        </select>
+      </label>
+      <button type="submit" class="btn-success" id="save-btn">Add Course</button>
+      <button type="button" class="btn-primary" id="reset-btn">Reset</button>
+    </form>
+
+    <h2>Course Listings</h2>
+    <table>
+      <thead><tr><th>ID</th><th>Title</th><th>Level</th><th>Status</th><th>Actions</th></tr></thead>
+      <tbody id="course-rows"></tbody>
+    </table>
+    <p id="empty-msg">No courses yet. Add your first course above.</p>
+  </main>
+  <script>
+    const API = 'http://localhost:5000/api/courses';
+
+    async function loadCourses() {
+      const res = await fetch(API);
+      const { data } = await res.json();
+      const rows = document.getElementById('course-rows');
+      rows.innerHTML = '';
+      document.getElementById('empty-msg').style.display = data.length ? 'none' : 'block';
+      data.forEach((course) => {
+        const tr = document.createElement('tr');
+        tr.innerHTML =
+          '<td>' + course.id + '</td>' +
+          '<td>' + course.title + '</td>' +
+          '<td>' + course.level + '</td>' +
+          '<td><span class="badge">' + course.status + '</span></td>' +
+          '<td>' +
+          '<button class="btn-primary" onclick="editCourse(' + course.id + ')">Edit</button> ' +
+          '<button class="btn-danger" onclick="deleteCourse(' + course.id + ')">Delete</button>' +
+          '</td>';
+        rows.appendChild(tr);
+      });
+    }
+
+    document.getElementById('course-form').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const id = document.getElementById('course-id').value;
+      const payload = {
+        title: document.getElementById('course-title').value,
+        description: document.getElementById('course-desc').value,
+        level: document.getElementById('course-level').value,
+        status: document.getElementById('course-status').value
+      };
+      const method = id ? 'PUT' : 'POST';
+      const url = id ? API + '/' + id : API;
+      const res = await fetch(url, {
+        method,
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      });
+      const result = await res.json();
+      if (!result.success) { alert(result.error); return; }
+      resetForm();
+      loadCourses();
+    });
+
+    async function editCourse(id) {
+      const res = await fetch(API + '/' + id);
+      const { data } = await res.json();
+      document.getElementById('course-id').value = data.id;
+      document.getElementById('course-title').value = data.title;
+      document.getElementById('course-desc').value = data.description;
+      document.getElementById('course-level').value = data.level;
+      document.getElementById('course-status').value = data.status;
+      document.getElementById('save-btn').textContent = 'Update Course';
+      window.scrollTo(0, 0);
+    }
+
+    async function deleteCourse(id) {
+      if (!confirm('Delete course #' + id + '?')) return;
+      const res = await fetch(API + '/' + id, { method: 'DELETE' });
+      const result = await res.json();
+      if (!result.success) { alert(result.error); return; }
+      loadCourses();
+    }
+
+    function resetForm() {
+      document.getElementById('course-form').reset();
+      document.getElementById('course-id').value = '';
+      document.getElementById('save-btn').textContent = 'Add Course';
+    }
+
+    document.getElementById('reset-btn').addEventListener('click', resetForm);
+    loadCourses();
+  </script>
+</body>
+</html>
