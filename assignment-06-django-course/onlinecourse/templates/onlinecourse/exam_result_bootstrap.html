@@ -43,7 +43,7 @@
         <ul>
           {% for choice in item.choices %}
           <li>
-            {{ choice.content }}
+            {{ choice.choice_text }}
             {% if choice.id in item.selected_ids %}(your answer){% endif %}
             {% if choice.is_correct %}<strong>- correct answer</strong>{% endif %}
           </li>
